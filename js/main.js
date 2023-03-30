@@ -17,9 +17,7 @@ const createPhoto = (id) => {
 function getPhotosArray() {
   const array = Array.from({length: 25});
   for (let i = 0; i <= 25; i++) {
-      array[i] = createPhoto(i);
+    array[i] = createPhoto(i);
   }
   return array;
 }
-
-console.log(getPhotosArray());
