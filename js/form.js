@@ -59,10 +59,10 @@ export const unblockSubmitButton = () => {
   uploadButton.textContent = 'Сохранить';
 };
 
-function openUploadPhotoWindow() {
+export function openUploadPhotoWindow() {
   editWindow.classList.remove('hidden');
   document.body.classList.add('modal-open');
-
+  unblockSubmitButton();
   document.addEventListener('keydown', escapeOnForm);
 }
 
@@ -70,7 +70,7 @@ function closeUploadPhotoWindow() {
   editWindow.classList.add('hidden');
   document.body.classList.remove('modal-open');
   document.removeEventListener('keydown', escapeOnForm);
-  cleanForm();
+  // cleanForm();
 }
 
 uploadFile.addEventListener('change', () => {

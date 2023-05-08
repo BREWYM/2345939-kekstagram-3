@@ -1,4 +1,4 @@
-import { cleanForm, uploadFile } from './form.js';
+import { cleanForm, openUploadPhotoWindow, unblockSubmitButton, uploadFile } from './form.js';
 import { findTemplate, isEscKey } from './util.js';
 const imgUploadOverlayElement = document.querySelector('.img-upload__overlay');
 
@@ -18,8 +18,10 @@ export const showUploadFailMessage = () => {
 
   function closeUploadFailMessage() {
     document.body.removeChild(alertElement);
-    imgUploadOverlayElement.classList.remove('hidden');
     document.removeEventListener('keydown', ESCListener);
+    imgUploadOverlayElement.classList.remove('hidden');
+    alertElement.removeEventListener('keydown', ESCListener);
+    console.log('Это через меня закрывается');
   }
 
   const errorButton = alertElement.querySelector('.error__button');
@@ -28,14 +30,21 @@ export const showUploadFailMessage = () => {
     cleanForm();
     uploadFile.click();
   });
+
   alertElement.addEventListener('click', (evt) => {
-    if (evt.target.type === 'button' || evt.target.classList.contains('error')) {
-      closeUploadFailMessage(alertElement, ESCListener);
+    if (evt.target.type === 'button' ||
+     evt.target.classList.contains('error')) {
+      closeUploadFailMessage(ESCListener);
+      openUploadPhotoWindow();
+      // unblockSubmitButton();
     }
   });
   document.addEventListener('keydown', ESCListener);
   document.body.appendChild(alertElement);
 };
+
+
+
 
 export const showUploadSuccessMessage = () => {
   const successElement = findTemplate('#success', '.success').cloneNode(true);
