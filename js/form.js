@@ -46,7 +46,6 @@ export const updateButtonStatus = () => {
 postInfo.addEventListener('input', updateButtonStatus);
 
 
-
 export const blockSubmitButton = () => {
   formUploading = true;
   uploadButton.disabled = true;
@@ -97,7 +96,6 @@ imgUploadForm.addEventListener('submit', (evt) =>{
       unblockSubmitButton();
     },
     ()=>{
-      console.log('Это ошибка отправки');
       showUploadFailMessage();
       unblockSubmitButton();
     },

@@ -1,4 +1,4 @@
-import { cleanForm, openUploadPhotoWindow, unblockSubmitButton, uploadFile } from './form.js';
+import { cleanForm, openUploadPhotoWindow, uploadFile } from './form.js';
 import { findTemplate, isEscKey } from './util.js';
 const imgUploadOverlayElement = document.querySelector('.img-upload__overlay');
 
@@ -21,7 +21,6 @@ export const showUploadFailMessage = () => {
     document.removeEventListener('keydown', ESCListener);
     imgUploadOverlayElement.classList.remove('hidden');
     alertElement.removeEventListener('keydown', ESCListener);
-    console.log('Это через меня закрывается');
   }
 
   const errorButton = alertElement.querySelector('.error__button');
@@ -42,8 +41,6 @@ export const showUploadFailMessage = () => {
   document.addEventListener('keydown', ESCListener);
   document.body.appendChild(alertElement);
 };
-
-
 
 
 export const showUploadSuccessMessage = () => {
