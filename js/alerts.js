@@ -1,4 +1,4 @@
-export const alert = (message) => {
+export const showAlert = (message) => {
   const alertContainer = document.createElement('div');
   alertContainer.className = 'connection_error';
   alertContainer.style.zIndex = '100';
@@ -20,6 +20,6 @@ export const alert = (message) => {
   }, 6000);
 };
 
-export const downloadAlert = () =>{
-  alert('Image wasn\'t downloaded from the server');
+export const showDownloadAlert = () =>{
+  showAlert('Image wasn\'t downloaded from the server');
 };

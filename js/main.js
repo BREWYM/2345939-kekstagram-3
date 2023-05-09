@@ -7,7 +7,7 @@ import './effects.js';
 import { drawPhotos } from './draw.js';
 import { getPhotos } from './data.js';
 import { generatePhotosArray} from './random-data.js';
-import { downloadAlert } from './notLoadedImages.js';
+import { showDownloadAlert } from './alerts.js';
 
 
 const DESCRIPTIONS_NUMBER = 25;
@@ -16,7 +16,7 @@ const drawPhoto = () =>
   getPhotos(
     (data) => drawPhotos(data.slice(0, DESCRIPTIONS_NUMBER)),
     () => {
-      downloadAlert();
+      showDownloadAlert();
       drawPhotos(generatePhotosArray(DESCRIPTIONS_NUMBER));
     }
   );
