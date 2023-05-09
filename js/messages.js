@@ -35,7 +35,6 @@ export const showUploadFailMessage = () => {
      evt.target.classList.contains('error')) {
       closeUploadFailMessage(ESCListener);
       openUploadPhotoWindow();
-      // unblockSubmitButton();
     }
   });
   document.addEventListener('keydown', ESCListener);
@@ -49,6 +48,7 @@ export const showUploadSuccessMessage = () => {
 
   function closeDataSuccessMessage() {
     document.body.removeChild(successElement);
+    cleanForm();
     document.removeEventListener('keydown', ESCListener);
   }
 
