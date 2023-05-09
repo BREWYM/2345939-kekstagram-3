@@ -68,13 +68,12 @@ function closeUploadPhotoWindow() {
   editWindow.classList.add('hidden');
   document.body.classList.remove('modal-open');
   document.removeEventListener('keydown', escapeOnForm);
-  // cleanForm();
+  cleanForm();
 }
 
 uploadFile.addEventListener('change', () => {
   openUploadPhotoWindow();
 });
-
 
 cancelButton.addEventListener('click', (evt) => {
   evt.preventDefault();
