@@ -10,7 +10,6 @@ const uploadButton = document.querySelector('.img-upload__submit');
 const cancelButton = document.querySelector('#upload-cancel');
 const hashtagInput = document.querySelector('.text__hashtags');
 const commentInput = document.querySelector('.text__description');
-// const noneStyle = document.querySelector('.effects__radio');
 const imgUploadForm = document.querySelector('.img-upload__form');
 export const uploadFile = imgUploadForm.querySelector('#upload-file');
 const postInfo = editWindow.querySelector('.img-upload__text');

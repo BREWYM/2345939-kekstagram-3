@@ -1,5 +1,6 @@
 export const alert = (message) => {
   const alertContainer = document.createElement('div');
+  alertContainer.className = 'connection_error';
   alertContainer.style.zIndex = '100';
   alertContainer.style.position = 'absolute';
   alertContainer.style.left = '0';
